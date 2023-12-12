@@ -1,4 +1,4 @@
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.213.0.0/20
+iptables -t nat -A POSTROUTING -s 192.213.0.0/20 -o eth0 -j SNAT --to-source $(hostname -I | awk '{print $1}')
 
 route add -net 192.213.0.0 netmask 255.255.255.252 gw 192.213.0.18
 route add -net 192.213.0.4 netmask 255.255.255.252 gw 192.213.0.18
