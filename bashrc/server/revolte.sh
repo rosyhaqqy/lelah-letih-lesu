@@ -63,4 +63,4 @@ subnet 192.213.4.0 netmask 255.255.252.0 {
 
 service isc-dhcp-server restart
 
-iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 -j DROP
+iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP
